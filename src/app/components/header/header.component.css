@@ -1,0 +1,12 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.nav-btn{
+    margin-right: 0.5em;
+    background-color: gold;
+    color:black; 
+    border: 2px solid black;
+    border-radius: 5px;
+    width:5%;
+}
