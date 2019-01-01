@@ -16,6 +16,11 @@ export class NotesService {
   createNote(note: Note) {
     return this._http.post(`${ApiUrl}/Notes`, note, {headers: this.getHeaders()});
   }
+
+  getNote(id: string){
+    return this._http.get(`${ApiUrl}/Notes/${id}`, { headers: this.getHeaders() });
+  }
+
   private getHeaders(){
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }

@@ -20,13 +20,19 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { NotesService } from './services/notes.service';
 import { NoteIndexComponent } from './components/note/note-index/note-index.component';
+import { NoteCreateComponent } from './components/note/note-create/note-create.component';
+import { NoteDetailComponent } from './components/note/note-detail/note-detail.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'notes', component: NoteIndexComponent},
-  { path: '**', component: RegistrationComponent}
-];
+  { path: 'notes', children: [
+    { path: '', component: NoteIndexComponent },
+    { path: 'create', component: NoteCreateComponent },
+    { path: 'details/:id', component: NoteDetailComponent },
+  ]},
+  { path: '**', component: RegistrationComponent},
+]
 
 @NgModule({
   declarations: [
@@ -34,7 +40,9 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    NoteIndexComponent
+    NoteIndexComponent,
+    NoteCreateComponent,
+    NoteDetailComponent
   ],
   imports: [
     BrowserModule,

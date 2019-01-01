@@ -1,14 +1,17 @@
 <h1>Index</h1>
-<a mat-raised-button color="primary">Create New</a>
+<a mat-raised-button color="primary" routerLink="/notes/create">Create New</a>
 <hr>
 
 <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+    
     <ng-container matCoulumnDef="details">
       <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let note"> <i class="material-icons">library_books</i></mat-cell>
+      <mat-cell *matCellDef="let note" routerLink="/notes/detail/{{note.NoteId}}"> 
+        <i class="material-icons">library_books</i>
+      </mat-cell>
     </ng-container>
 
     <ng-container matCoulumnDef="NoteId">
